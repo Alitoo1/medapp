@@ -1,0 +1,259 @@
+<html lang="fr">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Application de Traduction Médicale
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+ </head>
+ <body class="font-roboto bg-gray-100 text-gray-900">
+  <div class="container mx-auto p-4">
+   <!-- Section de sélection de langue -->
+   <div class="mb-8">
+    <label class="block text-lg font-medium mb-2" for="language">
+     Sélectionnez votre langue :
+    </label>
+    <select class="block w-full p-2 border border-gray-300 rounded-lg" id="language">
+     <option value="fr">
+      Français
+     </option>
+     <option value="en">
+      Anglais
+     </option>
+     <option value="es">
+      Espagnol
+     </option>
+     <option value="ar">
+      Arabe
+     </option>
+     <option value="zh">
+      Chinois
+     </option>
+     <option value="ber">
+      Amazigh
+     </option>
+    </select>
+   </div>
+   <!-- Section des symptômes avec images -->
+   <div class="mb-8">
+    <h2 class="text-2xl font-semibold mb-4">
+     Sélectionnez vos symptômes :
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+     <div class="symptom p-4 border border-gray-300 rounded-lg text-center hover:bg-gray-200 cursor-pointer" data-symptom="Mal de tête">
+      <img alt="Image illustrative d'une tête pour le mal de tête" class="mx-auto mb-2" height="100" src="https://nouvelle-url-de-limage.com/mal-de-tete.jpg" width="100"/>
+      <span>
+       Mal de tête
+      </span>
+     </div>
+     <div class="symptom p-4 border border-gray-300 rounded-lg text-center hover:bg-gray-200 cursor-pointer" data-symptom="Fièvre">
+      <img alt="Image illustrative d'un thermomètre pour la fièvre" class="mx-auto mb-2" height="100" src="https://nouvelle-url-de-limage.com/fievre.jpg" width="100"/>
+      <span>
+       Fièvre
+      </span>
+     </div>
+     <div class="symptom p-4 border border-gray-300 rounded-lg text-center hover:bg-gray-200 cursor-pointer" data-symptom="Douleurs abdominales">
+      <img alt="Image illustrative d'un estomac pour les douleurs abdominales" class="mx-auto mb-2" height="100" src="https://nouvelle-url-de-limage.com/douleurs-abdominales.jpg" width="100"/>
+      <span>
+       Douleurs abdominales
+      </span>
+     </div>
+     <div class="symptom p-4 border border-gray-300 rounded-lg text-center hover:bg-gray-200 cursor-pointer" data-symptom="Mal de gorge">
+      <img alt="Image illustrative d'une gorge pour le mal de gorge" class="mx-auto mb-2" height="100" src="https://nouvelle-url-de-limage.com/mal-de-gorge.jpg" width="100"/>
+      <span>
+       Mal de gorge
+      </span>
+     </div>
+     <div class="symptom p-4 border border-gray-300 rounded-lg text-center hover:bg-gray-200 cursor-pointer" data-symptom="Nez qui coule">
+      <img alt="Image illustrative d'un nez pour le nez qui coule" class="mx-auto mb-2" height="100" src="https://nouvelle-url-de-limage.com/nez-qui-coule.jpg" width="100"/>
+      <span>
+       Nez qui coule
+      </span>
+     </div>
+     <div class="symptom p-4 border border-gray-300 rounded-lg text-center hover:bg-gray-200 cursor-pointer" data-symptom="Toux">
+      <img alt="Image illustrative d'une toux pour la toux" class="mx-auto mb-2" height="100" src="https://nouvelle-url-de-limage.com/toux.jpg" width="100"/>
+      <span>
+       Toux
+      </span>
+     </div>
+    </div>
+   </div>
+   <!-- Traduction automatique -->
+   <div class="mb-8">
+    <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600" id="translateButton">
+     Traduire
+    </button>
+    <div class="mt-4 p-4 border border-gray-300 rounded-lg bg-white" id="translatedSymptoms">
+     <h3 class="text-xl font-semibold mb-2">
+      Symptômes traduits :
+     </h3>
+     <p id="translatedText">
+      Aucun symptôme sélectionné.
+     </p>
+    </div>
+   </div>
+   <!-- Section des diagnostics probables avec images -->
+   <div class="mb-8">
+    <h2 class="text-2xl font-semibold mb-4">
+     Diagnostics probables :
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+     <div class="diagnosis p-4 border border-gray-300 rounded-lg text-center hover:bg-gray-200 cursor-pointer" data-diagnosis="Grippe">
+      <img alt="Image illustrative d'une personne malade pour la grippe" class="mx-auto mb-2" height="100" src="https://nouvelle-url-de-limage.com/grippe.jpg" width="100"/>
+      <span>
+       Grippe
+      </span>
+     </div>
+     <div class="diagnosis p-4 border border-gray-300 rounded-lg text-center hover:bg-gray-200 cursor-pointer" data-diagnosis="Rhume">
+      <img alt="Image illustrative d'une personne avec un nez qui coule pour le rhume" class="mx-auto mb-2" height="100" src="https://nouvelle-url-de-limage.com/rhume.jpg" width="100"/>
+      <span>
+       Rhume
+      </span>
+     </div>
+     <div class="diagnosis p-4 border border-gray-300 rounded-lg text-center hover:bg-gray-200 cursor-pointer" data-diagnosis="Gastro-entérite">
+      <img alt="Image illustrative d'une personne avec des douleurs abdominales pour la gastro-entérite" class="mx-auto mb-2" height="100" src="https://nouvelle-url-de-limage.com/gastro-enterite.jpg" width="100"/>
+      <span>
+       Gastro-entérite
+      </span>
+     </div>
+     <div class="diagnosis p-4 border border-gray-300 rounded-lg text-center hover:bg-gray-200 cursor-pointer" data-diagnosis="Migraine">
+      <img alt="Image illustrative d'une personne souffrant de migraine" class="mx-auto mb-2" height="100" src="https://nouvelle-url-de-limage.com/migraine.jpg" width="100"/>
+      <span>
+       Migraine
+      </span>
+     </div>
+     <div class="diagnosis p-4 border border-gray-300 rounded-lg text-center hover:bg-gray-200 cursor-pointer" data-diagnosis="Sinusite">
+      <img alt="Image illustrative d'une personne souffrant de sinusite" class="mx-auto mb-2" height="100" src="https://nouvelle-url-de-limage.com/sinusite.jpg" width="100"/>
+      <span>
+       Sinusite
+      </span>
+     </div>
+     <div class="diagnosis p-4 border border-gray-300 rounded-lg text-center hover:bg-gray-200 cursor-pointer" data-diagnosis="Bronchite">
+      <img alt="Image illustrative d'une personne souffrant de bronchite" class="mx-auto mb-2" height="100" src="https://nouvelle-url-de-limage.com/bronchite.jpg" width="100"/>
+      <span>
+       Bronchite
+      </span>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+   document.getElementById('translateButton').addEventListener('click', function() {
+            const selectedLanguage = document.getElementById('language').value;
+            const selectedSymptoms = Array.from(document.querySelectorAll('.symptom.selected')).map(el => el.getAttribute('data-symptom'));
+            let translatedSymptoms = [];
+
+            if (selectedLanguage === 'fr') {
+                translatedSymptoms = selectedSymptoms.map(symptom => symptom);
+            } else if (selectedLanguage === 'en') {
+                translatedSymptoms = selectedSymptoms.map(symptom => {
+                    if (symptom === 'Mal de tête') return 'Headache';
+                    if (symptom === 'Fièvre') return 'Fever';
+                    if (symptom === 'Douleurs abdominales') return 'Abdominal pain';
+                    if (symptom === 'Mal de gorge') return 'Sore throat';
+                    if (symptom === 'Nez qui coule') return 'Runny nose';
+                    if (symptom === 'Toux') return 'Cough';
+                });
+            } else if (selectedLanguage === 'es') {
+                translatedSymptoms = selectedSymptoms.map(symptom => {
+                    if (symptom === 'Mal de tête') return 'Dolor de cabeza';
+                    if (symptom === 'Fièvre') return 'Fiebre';
+                    if (symptom === 'Douleurs abdominales') return 'Dolor abdominal';
+                    if (symptom === 'Mal de gorge') return 'Dolor de garganta';
+                    if (symptom === 'Nez qui coule') return 'Nariz que moquea';
+                    if (symptom === 'Toux') return 'Tos';
+                });
+            } else if (selectedLanguage === 'ar') {
+                translatedSymptoms = selectedSymptoms.map(symptom => {
+                    if (symptom === 'Mal de tête') return 'صداع';
+                    if (symptom === 'Fièvre') return 'حمى';
+                    if (symptom === 'Douleurs abdominales') return 'آلام في البطن';
+                    if (symptom === 'Mal de gorge') return 'التهاب الحلق';
+                    if (symptom === 'Nez qui coule') return 'سيلان الأنف';
+                    if (symptom === 'Toux') return 'سعال';
+                });
+            } else if (selectedLanguage === 'zh') {
+                translatedSymptoms = selectedSymptoms.map(symptom => {
+                    if (symptom === 'Mal de tête') return '头痛';
+                    if (symptom === 'Fièvre') return '发烧';
+                    if (symptom === 'Douleurs abdominales') return '腹痛';
+                    if (symptom === 'Mal de gorge') return '喉咙痛';
+                    if (symptom === 'Nez qui coule') return '流鼻涕';
+                    if (symptom === 'Toux') return '咳嗽';
+                });
+            } else if (selectedLanguage === 'ber') {
+                translatedSymptoms = selectedSymptoms.map(symptom => {
+                    if (symptom === 'Mal de tête') return 'Aẓru';
+                    if (symptom === 'Fièvre') return 'Tafruxt';
+                    if (symptom === 'Douleurs abdominales') return 'Taqsift n yid';
+                    if (symptom === 'Mal de gorge') return 'Aẓru n imes';
+                    if (symptom === 'Nez qui coule') return 'Aẓru n imes';
+                    if (symptom === 'Toux') return 'Tafruxt';
+                });
+            }
+
+            document.getElementById('translatedText').innerText = translatedSymptoms.join(', ');
+        });
+
+        document.querySelectorAll('.symptom').forEach(symptom => {
+            symptom.addEventListener('click', function() {
+                this.classList.toggle('selected');
+                this.classList.toggle('bg-gray-300');
+            });
+        });
+
+        document.querySelectorAll('.diagnosis').forEach(diagnosis => {
+            diagnosis.addEventListener('click', function() {
+                const selectedLanguage = document.getElementById('language').value;
+                const diagnosisText = this.getAttribute('data-diagnosis');
+                let translatedDiagnosis = '';
+
+                if (selectedLanguage === 'fr') {
+                    translatedDiagnosis = diagnosisText;
+                } else if (selectedLanguage === 'en') {
+                    if (diagnosisText === 'Grippe') translatedDiagnosis = 'Flu';
+                    if (diagnosisText === 'Rhume') translatedDiagnosis = 'Cold';
+                    if (diagnosisText === 'Gastro-entérite') translatedDiagnosis = 'Gastroenteritis';
+                    if (diagnosisText === 'Migraine') translatedDiagnosis = 'Migraine';
+                    if (diagnosisText === 'Sinusite') translatedDiagnosis = 'Sinusitis';
+                    if (diagnosisText === 'Bronchite') translatedDiagnosis = 'Bronchitis';
+                } else if (selectedLanguage === 'es') {
+                    if (diagnosisText === 'Grippe') translatedDiagnosis = 'Gripe';
+                    if (diagnosisText === 'Rhume') translatedDiagnosis = 'Resfriado';
+                    if (diagnosisText === 'Gastro-entérite') translatedDiagnosis = 'Gastroenteritis';
+                    if (diagnosisText === 'Migraine') translatedDiagnosis = 'Migraña';
+                    if (diagnosisText === 'Sinusite') translatedDiagnosis = 'Sinusitis';
+                    if (diagnosisText === 'Bronchite') translatedDiagnosis = 'Bronquitis';
+                } else if (selectedLanguage === 'ar') {
+                    if (diagnosisText === 'Grippe') translatedDiagnosis = 'إنفلونزا';
+                    if (diagnosisText === 'Rhume') translatedDiagnosis = 'زكام';
+                    if (diagnosisText === 'Gastro-entérite') translatedDiagnosis = 'التهاب المعدة والأمعاء';
+                    if (diagnosisText === 'Migraine') translatedDiagnosis = 'صداع نصفي';
+                    if (diagnosisText === 'Sinusite') translatedDiagnosis = 'التهاب الجيوب الأنفية';
+                    if (diagnosisText === 'Bronchite') translatedDiagnosis = 'التهاب الشعب الهوائية';
+                } else if (selectedLanguage === 'zh') {
+                    if (diagnosisText === 'Grippe') translatedDiagnosis = '流感';
+                    if (diagnosisText === 'Rhume') translatedDiagnosis = '感冒';
+                    if (diagnosisText === 'Gastro-entérite') translatedDiagnosis = '胃肠炎';
+                    if (diagnosisText === 'Migraine') translatedDiagnosis = '偏头痛';
+                    if (diagnosisText === 'Sinusite') translatedDiagnosis = '鼻窦炎';
+                    if (diagnosisText === 'Bronchite') translatedDiagnosis = '支气管炎';
+                } else if (selectedLanguage === 'ber') {
+                    if (diagnosisText === 'Grippe') translatedDiagnosis = 'Tafruxt';
+                    if (diagnosisText === 'Rhume') translatedDiagnosis = 'Aẓru n imes';
+                    if (diagnosisText === 'Gastro-entérite') translatedDiagnosis = 'Taqsift n yid';
+                    if (diagnosisText === 'Migraine') translatedDiagnosis = 'Aẓru n uḍa';
+                    if (diagnosisText === 'Sinusite') translatedDiagnosis = 'Tafruxt n imes';
+                    if (diagnosisText === 'Bronchite') translatedDiagnosis = 'Tafruxt n yid';
+                }
+
+                document.getElementById('translatedText').innerText = translatedDiagnosis;
+            });
+        });
+  </script>
+ </body>
+</html>
